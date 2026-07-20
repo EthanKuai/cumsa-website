@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --breakpoint-xs: 24rem; /* 384 px */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -197,6 +198,7 @@ html {
   border: none;
 }
 
+/* Footer */
 .bar {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

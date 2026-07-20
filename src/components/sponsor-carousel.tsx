@@ -7,7 +7,7 @@ const n =
 
 export default function SponsorCarousel() {
   return n === 0 ? null : (
-    <div className="border-border border-t bg-slate-950/50 px-[5%] py-6 backdrop-blur-xl">
+    <div className="border-border xs:py-6 border-t bg-slate-950/50 px-[5%] py-3 backdrop-blur-xl">
       <div className={`mx-auto grid grid-cols-${n} gap-8`}>
         {/* Sponsors */}
         {Object.entries(sponsors).map(
@@ -15,7 +15,7 @@ export default function SponsorCarousel() {
             tier !== "Silver" &&
             tierSponsors.length > 0 && (
               <div key={tier}>
-                <h3 className="text-foreground mb-6 text-lg font-semibold">
+                <h3 className="text-foreground xs:mb-6 mb-3 text-lg font-semibold">
                   {tier} Sponsors
                 </h3>
                 <div className="relative overflow-hidden">
