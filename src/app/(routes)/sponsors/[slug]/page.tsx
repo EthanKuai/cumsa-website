@@ -16,7 +16,7 @@ export default async function SponsorPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="min-h-screen">
-      <div className="bg-muted border-b border-border py-4">
+      <div className="backdrop-blur-xl bg-slate-950/60 border-b border-border py-4">
         <div className="container mx-auto px-4">
           <div className="flex items-center text-sm text-muted-foreground">
             <Link href="/sponsors" className="hover:text-foreground">Sponsors</Link>
@@ -121,7 +121,7 @@ export default async function SponsorPage({ params }: { params: Promise<{ slug: 
 
           {/* Video Section */}
           {sponsor.videoUrl && (
-            <div className="my-8">
+            <div className="my-8 p-8 backdrop-blur-xl bg-slate-950/50 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">
                 <Link
                   href={sponsor.videoUrl}
@@ -144,17 +144,12 @@ export default async function SponsorPage({ params }: { params: Promise<{ slug: 
           )}
 
           {sponsor.images && (
-            <div className="my-8">
+            <div className="my-8 p-8 backdrop-blur-xl bg-slate-950/50 rounded-lg">
               <h3 className="text-xl font-semibold mb-4">Corporate Brochure</h3>
-              <div className="relative w-full aspect-video bg-transparent rounded-lg overflow-hidden">
-                <ZoomableImage
-                  src={sponsor.images}
-                  alt={`${sponsor.name} Corporate Brochure`}
-                  width={400}
-                  height={800}
-                  className="w-full h-full"
-                />
-              </div>
+              <ZoomableImage
+                src={sponsor.images}
+                alt={`${sponsor.name} Corporate Brochure`}
+              />
             </div>
           )
           }

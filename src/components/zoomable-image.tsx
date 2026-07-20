@@ -1,24 +1,28 @@
 'use client';
 
+import { createPortal } from 'react-dom';
 import { useState } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 
-interface ZoomableImageProps {
+interface ImageProps {
   src: string;
   alt: string;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
   className?: string;
 }
 
-export function ZoomableImage({ src, alt, width, height, className }: ZoomableImageProps) {
+const x_size = 32;
+const default_size = 1600;
+
+export function ZoomableImage({ src, alt, width = default_size, height = default_size, className }: ImageProps) {
   const [isZoomed, setIsZoomed] = useState(false);
 
   return (
     <>
-      <div 
-        className={`cursor-zoom-in ${className}`}
+      <div
+        className={`cursor-zoom-in flex items-center justify-center ${className}`}
         onClick={() => setIsZoomed(true)}
       >
         <Image
@@ -26,12 +30,12 @@ export function ZoomableImage({ src, alt, width, height, className }: ZoomableIm
           alt={alt}
           width={width}
           height={height}
-          className="object-contain max-h-full max-w-full"
+          className="object-contain max-h-[70vh] rounded-lg"
         />
       </div>
 
-      {isZoomed && (
-        <div 
+      {isZoomed && createPortal(
+        <div
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           onClick={() => setIsZoomed(false)}
         >
@@ -40,20 +44,20 @@ export function ZoomableImage({ src, alt, width, height, className }: ZoomableIm
             onClick={() => setIsZoomed(false)}
             aria-label="Close"
           >
-            <X size={32} />
+            <X size={x_size} />
           </button>
-          <div className="relative max-w-7xl max-h-full cursor-zoom-out">
+          <div className="relative cursor-zoom-out">
             <Image
               src={src}
               alt={alt}
-              width={1200}
-              height={1600}
-              className="object-contain max-h-[90vh] w-auto"
+              width={width}
+              height={height}
+              className="object-contain max-h-[90vh]"
               quality={100}
             />
           </div>
         </div>
-      )}
+        , document.body)}
     </>
   );
 }
