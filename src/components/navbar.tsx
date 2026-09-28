@@ -206,8 +206,8 @@ export default function Navbar() {
                 </Link>
               </DropdownMenuItem>
 
-              <DropdownMenuSeparator />
-              <DropdownMenuItem asChild className="sm:hidden">
+              <DropdownMenuSeparator className="xs:hidden" />
+              <DropdownMenuItem asChild className="xs:hidden">
                 <Link
                   href="https://membership.cumsa.org/"
                   className="cursor-pointer font-medium"
