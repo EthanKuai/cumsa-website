@@ -14,12 +14,10 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -125,79 +123,80 @@ export default function Navbar() {
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-64">
+            <DropdownMenuContent
+              align="end"
+              collisionPadding={16}
+              className="w-64 max-w-(--radix-dropdown-menu-content-available-width) min-w-0"
+            >
               <DropdownMenuLabel className="font-semibold">
                 Navigation
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
 
               {/* About submenu */}
-              <DropdownMenuSub>
-                <DropdownMenuSubTrigger className="cursor-pointer">
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="text-muted-foreground text-xs">
                   About
-                </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem asChild>
-                    <Link href="/about" className="cursor-pointer">
-                      About CUMSA
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/about/events" className="cursor-pointer">
-                      Events
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuSub>
+                </DropdownMenuLabel>
+                <DropdownMenuItem asChild>
+                  <Link href="/about" className="cursor-pointer">
+                    About CUMSA
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/about/events" className="cursor-pointer">
+                    Events
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
 
               {/* Resources submenu */}
-              <DropdownMenuSub>
-                <DropdownMenuSubTrigger className="cursor-pointer">
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="text-muted-foreground text-xs">
                   Resources
-                </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem asChild>
-                    <Link href="/resources/freshers" className="cursor-pointer">
-                      Freshers
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link
-                      href="/resources/prospective-students"
-                      className="cursor-pointer"
-                    >
-                      Prospective Applicants
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link
-                      href="/resources/publications"
-                      className="cursor-pointer"
-                    >
-                      Past Publications
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuSub>
+                </DropdownMenuLabel>
+                <DropdownMenuItem asChild>
+                  <Link href="/resources/freshers" className="cursor-pointer">
+                    Freshers
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/resources/prospective-students"
+                    className="cursor-pointer"
+                  >
+                    Prospective Applicants
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link
+                    href="/resources/publications"
+                    className="cursor-pointer"
+                  >
+                    Past Publications
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
 
               {/* Sponsors & Partners submenu */}
-              <DropdownMenuSub>
-                <DropdownMenuSubTrigger className="cursor-pointer">
+              <DropdownMenuGroup>
+                <DropdownMenuLabel className="text-muted-foreground text-xs">
                   Sponsors & Partners
-                </DropdownMenuSubTrigger>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem asChild>
-                    <Link href="/sponsors" className="cursor-pointer">
-                      Sponsors
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/partners" className="cursor-pointer">
-                      Partners
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuSub>
+                </DropdownMenuLabel>
+                <DropdownMenuItem asChild>
+                  <Link href="/sponsors" className="cursor-pointer">
+                    Sponsors
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/partners" className="cursor-pointer">
+                    Partners
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
+              <DropdownMenuSeparator />
 
               {/* Direct links */}
               <DropdownMenuItem asChild>
